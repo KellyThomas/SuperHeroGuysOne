@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/Main.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Fire.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Fireman.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Trophy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://art/3rdParty/Intense.ogg" type="AudioStream" id=6]
+[ext_resource path="res://art/3rdParty/Next to You.mp3" type="AudioStream" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1920, 0, 0, 0, 0, 0, 1920, 1080, 0, 0, 0, 0, 0, 1080, 0, 0, 0, 0, 0, 0 )
+}
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+level_music = ExtResource( 6 )
+menu_music = ExtResource( 7 )
+Mob = ExtResource( 2 )
+Trophy = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.027451, 0.0156863, 0.239216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fireman" parent="." instance=ExtResource( 3 )]
+position = Vector2( 960, 600 )
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TrophyTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StartPosition" type="Position2D" parent="."]
+position = Vector2( 960, 600 )
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -3.852
+
+[connection signal="bump_multiplier" from="Fireman" to="." method="bump_multiplier"]
+[connection signal="hit" from="Fireman" to="." method="game_over"]
+[connection signal="sfx_finished" from="Fireman" to="." method="_on_Fireman_sfx_finished"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+[connection signal="timeout" from="TrophyTimer" to="." method="_on_TrophyTimer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]

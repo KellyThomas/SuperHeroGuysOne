@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/argh.ogg-312548400388d96ce9f1206d1db53e2e.oggstr"
+
+[deps]
+
+source_file="res://art/sfx/argh.ogg"
+dest_files=[ "res://.import/argh.ogg-312548400388d96ce9f1206d1db53e2e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
