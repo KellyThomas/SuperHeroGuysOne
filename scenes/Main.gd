@@ -30,6 +30,8 @@ func new_game():
 	multiplier = 1
 	$Fireman.start($StartPosition.position)
 	$StartTimer.start()
+	$ScoreTimer.wait_time = 1
+	$TrophyTimer.wait_time = 1
 	$HUD.update_score(score)
 	$HUD.update_multiplier(multiplier)
 	$HUD.show_ready_message()
@@ -57,7 +59,6 @@ func is_player_close(candidate_position, threshold):
 	var distance_squared = (candidate_position - $Fireman.position).length_squared()
 	return distance_squared < threshold
 
-
 func _on_MobTimer_timeout():
 	var mobSpawn:PathFollow2D = $MobPath/MobSpawnLocation
 	# Choose a random location on Path2D.
@@ -84,15 +85,15 @@ func bump_multiplier():
 	$HUD.update_multiplier(multiplier)
 	$TrophyTimer.wait_time = multiplier
 	$TrophyTimer.start()
+	$ScoreTimer.wait_time = 1 / float(multiplier)
 
 func _on_ScoreTimer_timeout():
-	score += multiplier
+	score += 1
 	$HUD.update_score(score)
 
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
-	$TrophyTimer.wait_time = multiplier
 	$TrophyTimer.start()
 
 func _on_TrophyTimer_timeout():
