@@ -2,9 +2,15 @@
 
 A collaboration between Owen and Kelly.
 
-Platforms:
+##Repo:
+
+  *   https://github.com/KellyThomas/SuperHeroGuysOne
+
+##Platforms:
+
   * Windows
 
-Input:
+##Input:
+
   * Keyboard: Space, Arrow keys
   * Controller (recommended)

@@ -65,7 +65,6 @@ SOFTWARE.
 
 * [MBedTLS](https://tls.mbed.org/)
 
-
     Copyright The Mbed TLS Contributors
 
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
@@ -76,8 +75,42 @@ SOFTWARE.
 
 * Logo
 
-
     Godot Engine Logo Copyright (c) 2017 Andrea Calabró
     
     This work is licensed under a Creative Commons Attribution 4.0 International License (CC-BY-4.0 International) https://creativecommons.org/licenses/by/4.0/.
+
+* [ANGLE.WindowsStore](https://www.nuget.org/packages/ANGLE.WindowsStore/)
+
+    copyright (c) 2002-2013 the angle project authors. 
+    portions copyright (c) microsoft corporation.
+    
+    bsd license
+    
+    all rights reserved.
+    
+    redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+    
+        redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+    
+        redistributions in binary form must reproduce the above 
+        copyright notice, this list of conditions and the following
+        disclaimer in the documentation and/or other materials provided
+        with the distribution.
+    
+        neither the name of transgaming inc., google inc., 3dlabs inc.
+        ltd., microsoft corporation, nor the names of their contributors
+        may be used to endorse or promote products derived from this
+        software without specific prior written permission.
+    
+    this software is provided by the copyright holders and contributors
+    "as is" and any express or implied warranties, including, but not 
+    limited to, the implied warranties of merchantability and fitness
+    for a particular purpose are disclaimed. in no event shall the
+    copyright owner or contributors be liable for any direct, indirect,
+    incidental, special, exemplary, or consequential damages (including,
+    but not limited to, procurement of substitute goods or services;
+    loss of use, data, or profits; or business interruption) 
 
