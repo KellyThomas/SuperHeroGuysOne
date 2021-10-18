@@ -1,19 +1,17 @@
 extends Node
 
-export (AudioStreamOGGVorbis) var level_music
-export (AudioStreamMP3) var menu_music
 export (PackedScene) var Mob
 export (PackedScene) var Trophy
 
 var score
 var multiplier
 var screen_size
-var next_song
 
 func _ready():
 	randomize()
 	screen_size = get_tree().get_root().get_visible_rect().size
-	play_music(menu_music)
+	MusicPlayer.queue_song("menu_music")
+	MusicPlayer.start_song()
 
 
 func game_over():
@@ -23,7 +21,7 @@ func game_over():
 	get_tree().call_group("mobs", "queue_free")
 	get_tree().call_group("trophy", "queue_free")
 	$HUD.show_game_over()
-	queue_next_song(menu_music)
+	MusicPlayer.queue_song("menu_music")
 
 func new_game():
 	score = 0
@@ -35,25 +33,8 @@ func new_game():
 	$HUD.update_score(score)
 	$HUD.update_multiplier(multiplier)
 	$HUD.show_ready_message()
-	queue_next_song(level_music)
-
-func queue_next_song(stream):
-	next_song = stream
-
-func play_music(stream):
-	var player:AudioStreamPlayer = $MusicPlayer
-	if (player.stream != stream) or !player.playing:
-		if stream == level_music:
-			player.volume_db = -3.8
-		elif stream == menu_music:
-			player.volume_db = -1
-		player.stream = stream
-		player.play()
-
-func start_song():
-	if next_song:
-		play_music(next_song)
-	next_song = null
+	MusicPlayer.queue_song("level_music")
+	
 
 func is_player_close(candidate_position, threshold):
 	var distance_squared = (candidate_position - $Fireman.position).length_squared()
@@ -105,4 +86,4 @@ func _on_TrophyTimer_timeout():
 	add_child(trophy)
 
 func _on_Fireman_sfx_finished():
-	start_song()
+	MusicPlayer.start_song()

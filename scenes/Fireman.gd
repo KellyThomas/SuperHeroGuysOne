@@ -43,13 +43,13 @@ func play_sfx(stream):
 		player.stream = stream
 	player.play()
 
-func _on_Fireman_body_entered(body):
+func _on_Fireman_body_entered(_body):
 	hide()
 	emit_signal("hit")
 	$CollisionShape2D.set_deferred("disabled", true)
 	play_sfx(death_sound)
 
-func _on_Fireman_area_shape_entered(area_id, area, area_shape, local_shape):
+func _on_Fireman_area_shape_entered(_area_id, area, _area_shape, _local_shape):
 	if area.is_in_group("trophy"):
 		emit_signal("bump_multiplier")
 		area.queue_free()

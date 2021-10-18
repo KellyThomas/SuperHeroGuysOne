@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/3rdParty/music/Intense.ogg" type="AudioStream" id=1]
+[ext_resource path="res://art/3rdParty/music/Next to You.mp3" type="AudioStream" id=2]
+[ext_resource path="res://scenes/autoloads/MusicPlayer.gd" type="Script" id=3]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+volume_db = -3.852
+script = ExtResource( 3 )
+level_music = ExtResource( 1 )
+menu_music = ExtResource( 2 )

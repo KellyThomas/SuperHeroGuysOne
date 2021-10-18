@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Next to You.mp3-1bfdd4cc66d4b27d4cb5684edac8c659.mp3str"
+
+[deps]
+
+source_file="res://art/3rdParty/music/Next to You.mp3"
+dest_files=[ "res://.import/Next to You.mp3-1bfdd4cc66d4b27d4cb5684edac8c659.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

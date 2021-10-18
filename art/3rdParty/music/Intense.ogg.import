@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Intense.ogg-f8747ed1278b5c1183459939f05c3fbf.oggstr"
+
+[deps]
+
+source_file="res://art/3rdParty/music/Intense.ogg"
+dest_files=[ "res://.import/Intense.ogg-f8747ed1278b5c1183459939f05c3fbf.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

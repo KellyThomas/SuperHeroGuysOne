@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Fire.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Fireman.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Trophy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://art/3rdParty/Intense.ogg" type="AudioStream" id=6]
-[ext_resource path="res://art/3rdParty/Next to You.mp3" type="AudioStream" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -15,8 +13,6 @@ _data = {
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
-level_music = ExtResource( 6 )
-menu_music = ExtResource( 7 )
 Mob = ExtResource( 2 )
 Trophy = ExtResource( 5 )
 
@@ -52,9 +48,6 @@ curve = SubResource( 1 )
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -3.852
 
 [connection signal="bump_multiplier" from="Fireman" to="." method="bump_multiplier"]
 [connection signal="hit" from="Fireman" to="." method="game_over"]
